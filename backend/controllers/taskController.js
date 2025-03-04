@@ -36,6 +36,16 @@ export const getAllTask = async (req, res) =>{
     }
 };
 
+export const getTask = async (req, res) =>{
+    try {
+        const task = await getTaskByUser(req.params.taskId);
+        if (!task) return res.status(404).json({message:"Task not found"});
+        req.status(200).json(task);
+    } catch (error) {
+        res.status(500).json({message:error.message});
+    }
+}
+
 export const removeTask = async (req, res) =>{
     try {
         const task = await deleteTask(req.params.taskId);
