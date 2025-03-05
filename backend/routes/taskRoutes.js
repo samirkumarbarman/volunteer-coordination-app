@@ -3,7 +3,7 @@ import {
     createNewTask,
     assignNewTask,
     updateTask,
-    getTask,
+    getTaskById,
     getAllTask,
     removeTask
 } from "../controllers/taskController.js"
@@ -19,7 +19,7 @@ router.put('/:taskId/status', protect, updateTask);
 
 router.get('/', protect, getAllTask);
 
-router.get('/:taskId', protect, getTask);
+router.get('/:taskId', protect, getTaskById);
 
 router.delete('/:taskId', protect, removeTask);
 

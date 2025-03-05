@@ -29,12 +29,12 @@ const userSchema = new mongoose.Schema({
 
     team :{
         type : mongoose.Schema.Types.ObjectId,
-        ref : Team,
+        ref : "Team",
     },
 }, { timestamps : true });
 
 //Hash password before saving
-userSchema.pre = ("save", async function (next){
+userSchema.pre ("save", async function (next){
     if (!this.isModified('password')){
         return next;
     }

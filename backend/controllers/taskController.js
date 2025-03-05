@@ -36,7 +36,7 @@ export const getAllTask = async (req, res) =>{
     }
 };
 
-export const getTask = async (req, res) =>{
+export const getTaskById = async (req, res) =>{
     try {
         const task = await getTaskByUser(req.params.taskId);
         if (!task) return res.status(404).json({message:"Task not found"});
